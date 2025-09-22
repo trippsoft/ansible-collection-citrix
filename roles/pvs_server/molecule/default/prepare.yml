@@ -56,3 +56,14 @@
         state: directory
   roles:
     - role: trippsc2.citrix.licensing
+  tasks:
+    - name: Import Licensing server certificate as trusted
+      loop:
+        - 'C:\Program Files (x86)\Citrix\Licensing\LS\conf\server.crt'
+        - 'C:\Program Files (x86)\Citrix\Licensing\WebServicesForLicensing\Apache\conf\server.crt'
+      ansible.windows.win_certificate_store:
+        path: "{{ item }}"
+        store_location: LocalMachine
+        store_name: Root
+        store_type: system
+        state: present

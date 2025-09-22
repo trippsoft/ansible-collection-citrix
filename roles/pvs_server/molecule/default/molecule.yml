@@ -45,7 +45,7 @@ provisioner:
       all:
         mssql_sa_password: SecurePassword123!
       subjects:
-        _ctxpvs_version: ${MOLECULE_CITRIX_PVS_VERSION:-2503}
+        _ctxpvs_version: ${MOLECULE_CITRIX_PVS_VERSION:-2507}
         _ctxpvs_console_installer_source: "../../../../files/pvs_console/{{ _ctxpvs_version }}"
         _ctxpvs_server_installer_source: "../../../../files/pvs_server/{{ _ctxpvs_version }}"
         _ctxpvs_licensing_installer_source: "../../../../files/licensing"
@@ -68,7 +68,7 @@ provisioner:
         ctxpvs_store_name: TEST
         ctxpvs_default_store_path: C:\PVS
         ctxpvs_ad_admin_group: test.loc/Users/Domain Admins
-        ctxpvs_license_server: WIN
+        ctxpvs_license_server: WIN.test.loc
         ctxpvs_license_server_port: 27000
         ctxpvs_use_cloud_licenses: false
         ctxpvs_use_network_service_account: true

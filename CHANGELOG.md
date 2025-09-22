@@ -2,6 +2,33 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.6.0] - 2025-09-22
+
+### Role - pvs_console
+
+- Added support for 2507 to be installed.
+- Added support for 2402 CU3 to be installed.
+
+### Role - pvs_server
+
+- Added support for 2507 to be installed.
+- Added support for 2402 CU3 to be installed.
+
+### Role - pvs_target
+
+- Added support for 2507 to be installed.
+- Added support for 2402 CU3 to be installed.
+
+### Role - wem_agent
+
+- Added support for 2507 to be installed.
+- Added support for 2402 CU3 to be installed.
+
+### Role - win_server_vda
+
+- Added support for 2507 to be installed.
+- Added support for 2402 CU3 to be installed.
+
 ## [1.5.1] - 2025-06-10
 
 ### Collection
