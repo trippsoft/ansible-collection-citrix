@@ -1,7 +1,7 @@
 <!-- BEGIN_ANSIBLE_DOCS -->
 
 # Ansible Role: trippsc2.citrix.cqi
-Version: 1.5.1
+Version: 1.6.0
 
 This role installs Citrix Connection Quality Indicator on Windows systems.
 
