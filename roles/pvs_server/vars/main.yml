@@ -1,5 +1,7 @@
 ---
 _ctxpvs_server_version_by_checksum:
+  f499edaeddd648f109cc82923c195e89eb214a2c: '2511'
+  a9dccfb3976f0b832d5e608712aaae351fa13764: '2507 CU1'
   30a6b006ec046d2212e04f84575e75c35eff11fc: '2507'
   f822c573cb30c6a092ee7536659fa10266bf2d55: '2503'
   32ddccfce369a642e6c7cb570dabec33cc0ef522: '2411'
@@ -14,6 +16,10 @@ _ctxpvs_server_version_by_checksum:
   070acd01034f4b80a94a5bc83da7ae72092d42e7: '2303'
 
 _ctxpvs_server_prerequisites_by_checksum:
+  f499edaeddd648f109cc82923c195e89eb214a2c:
+    - msoledbsql
+  a9dccfb3976f0b832d5e608712aaae351fa13764:
+    - msoledbsql
   30a6b006ec046d2212e04f84575e75c35eff11fc:
     - msoledbsql
   f822c573cb30c6a092ee7536659fa10266bf2d55:
@@ -37,6 +43,8 @@ _ctxpvs_server_prerequisites_by_checksum:
   070acd01034f4b80a94a5bc83da7ae72092d42e7: []
 
 _ctxpvs_server_product_id_by_checksum:
+  f499edaeddd648f109cc82923c195e89eb214a2c: '{F8779342-89A8-42E1-91B8-EE94F2F14CF5}'
+  a9dccfb3976f0b832d5e608712aaae351fa13764: '{6024EBA2-32B9-4540-8BC0-FDA0003EA726}'
   30a6b006ec046d2212e04f84575e75c35eff11fc: '{443AE02F-9B1F-4ADF-93B3-A6081EF8BFDA}'
   f822c573cb30c6a092ee7536659fa10266bf2d55: '{2E368935-8864-4AD4-93AA-F00F578F6F05}'
   32ddccfce369a642e6c7cb570dabec33cc0ef522: '{837658A5-D49B-4352-A956-7DD30B8C6D7A}'
@@ -51,6 +59,8 @@ _ctxpvs_server_product_id_by_checksum:
   070acd01034f4b80a94a5bc83da7ae72092d42e7: '{AF33090A-06CF-413F-8D6B-8D4AC1178405}'
 
 _ctxpvs_citrix_infra_monitor_needed_by_checksum:
+  f499edaeddd648f109cc82923c195e89eb214a2c: true
+  a9dccfb3976f0b832d5e608712aaae351fa13764: true
   30a6b006ec046d2212e04f84575e75c35eff11fc: true
   f822c573cb30c6a092ee7536659fa10266bf2d55: true
   32ddccfce369a642e6c7cb570dabec33cc0ef522: true
