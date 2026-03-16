@@ -1,7 +1,7 @@
 <!-- BEGIN_ANSIBLE_DOCS -->
 
 # Ansible Role: trippsc2.citrix.win_server_vda
-Version: 1.6.0
+Version: 1.7.0
 
 This role installs and configures Citrix Virtual Delivery Agent for Multi-session OS on Windows servers.
 
