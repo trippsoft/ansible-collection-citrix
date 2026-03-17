@@ -49,6 +49,9 @@ provisioner:
         _ctxpvs_console_installer_source: "../../../../files/pvs_console/{{ _ctxpvs_version }}"
         _ctxpvs_server_installer_source: "../../../../files/pvs_server/{{ _ctxpvs_version }}"
         _ctxpvs_licensing_installer_source: "../../../../files/licensing"
+        choco_configure_testing_repo: ${MOLECULE_CONFIGURE_TESTING_REPO:-true}
+        choco_testing_repo_name: Testing
+        choco_testing_repo_url: ${MOLECULE_TESTING_REPO_URL:-http://192.168.81.5:8081/repository/chocolatey-proxy/}
         ctxpvs_console_installer_path: "C:\\Windows\\Temp\\pvs_console\\{{ _ctxpvs_version }}\\PVS_Console_x64.exe"
         ctxpvs_server_installer_path: "C:\\Windows\\Temp\\pvs_server\\{{ _ctxpvs_version }}\\PVS_Server_x64.exe"
         ctxlic_installer_path: "C:\\Windows\\Temp\\licensing\\CTX_Licensing.msi"

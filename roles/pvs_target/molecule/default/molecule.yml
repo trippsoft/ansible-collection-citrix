@@ -24,6 +24,9 @@ provisioner:
       subjects:
         _ctxpvs_version: ${MOLECULE_CITRIX_PVS_VERSION:-2511}
         _ctxpvs_target_installer_source: "../../../../files/pvs_target/{{ _ctxpvs_version }}/PVS_Device_x64.exe"
+        choco_configure_testing_repo: ${MOLECULE_CONFIGURE_TESTING_REPO:-true}
+        choco_testing_repo_name: Testing
+        choco_testing_repo_url: ${MOLECULE_TESTING_REPO_URL:-http://192.168.81.5:8081/repository/chocolatey-proxy/}
         ctxpvs_target_installer_path: C:\Windows\Temp\PVS_Device_x64.exe
       windows:
         ansible_shell_type: powershell

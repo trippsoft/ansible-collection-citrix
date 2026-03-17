@@ -24,6 +24,9 @@ provisioner:
       subjects:
         _ctxwem_agent_version: ${MOLECULE_CITRIX_WEM_VERSION:-2511}
         _ctxwem_agent_installer_source: "../../../../files/wem_agent/{{ _ctxwem_agent_version }}/Citrix Workspace Environment Management Agent.exe"
+        choco_configure_testing_repo: ${MOLECULE_CONFIGURE_TESTING_REPO:-true}
+        choco_testing_repo_name: Testing
+        choco_testing_repo_url: ${MOLECULE_TESTING_REPO_URL:-http://192.168.81.5:8081/repository/chocolatey-proxy/}
         ctxwem_agent_installer_path: C:\Windows\Temp\Citrix Workspace Environment Management Agent.exe
       windows:
         ansible_shell_type: powershell
