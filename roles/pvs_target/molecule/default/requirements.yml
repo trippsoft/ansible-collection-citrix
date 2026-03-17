@@ -1,5 +1,3 @@
 ---
 collections:
-  - trippsc2.ad
-  - trippsc2.mssql
   - trippsc2.windows
