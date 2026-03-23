@@ -53,7 +53,7 @@
     type: dword
   notify:
     - _ctxvda_reboot
-  
+
 - name: Ensure hard error messages are disabled
   when:
     - ctxvda_disable_hard_error_messages

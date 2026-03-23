@@ -64,7 +64,7 @@ provisioner:
         ctxpvs_database_password: "{{ mssql_sa_password }}"
         ctxpvs_database_admin_authentication: sql
         ctxpvs_database_admin_username: sa
-        ctxpvs_database_admin_password: "{{ mssql_sa_password }}"        
+        ctxpvs_database_admin_password: "{{ mssql_sa_password }}"
         ctxpvs_farm_name: TEST
         ctxpvs_site_name: TEST
         ctxpvs_collection_name: TEST
@@ -88,10 +88,26 @@ provisioner:
         ansible_password: vagrant
     host_vars:
       dc:
-        ansible_ssh_common_args: '-o PreferredAuthentications=password -o PubkeyAuthentication=no -o UserKnownHostsFile=/dev/null -o ControlMaster=auto -o ControlPersist=60s -o ForwardX11=no -o LogLevel=ERROR -o StrictHostKeyChecking=no'
+        ansible_ssh_common_args: >-
+          -o PreferredAuthentications=password
+          -o PubkeyAuthentication=no
+          -o UserKnownHostsFile=/dev/null
+          -o ControlMaster=auto
+          -o ControlPersist=60s
+          -o ForwardX11=no
+          -o LogLevel=ERROR
+          -o StrictHostKeyChecking=no
       mssql:
         ansible_user: TEST\vagrant
-        ansible_ssh_common_args: '-o PreferredAuthentications=password -o PubkeyAuthentication=no -o UserKnownHostsFile=/dev/null -o ControlMaster=auto -o ControlPersist=60s -o ForwardX11=no -o LogLevel=ERROR -o StrictHostKeyChecking=no'
+        ansible_ssh_common_args: >-
+          -o PreferredAuthentications=password
+          -o PubkeyAuthentication=no
+          -o UserKnownHostsFile=/dev/null
+          -o ControlMaster=auto
+          -o ControlPersist=60s
+          -o ForwardX11=no
+          -o LogLevel=ERROR
+          -o StrictHostKeyChecking=no
         _mssql_setup_source_path: ../../../../files/mssql
         mssql_vault_manage_sa_password: false
         mssql_configure_monitoring: false
@@ -105,6 +121,14 @@ provisioner:
         mssql_skip_reboot: false
       win:
         ansible_user: TEST\vagrant
-        ansible_ssh_common_args: '-o PreferredAuthentications=password -o PubkeyAuthentication=no -o UserKnownHostsFile=/dev/null -o ControlMaster=auto -o ControlPersist=60s -o ForwardX11=no -o LogLevel=ERROR -o StrictHostKeyChecking=no'
+        ansible_ssh_common_args: >-
+          -o PreferredAuthentications=password
+          -o PubkeyAuthentication=no
+          -o UserKnownHostsFile=/dev/null
+          -o ControlMaster=auto
+          -o ControlPersist=60s
+          -o ForwardX11=no
+          -o LogLevel=ERROR
+          -o StrictHostKeyChecking=no
 verifier:
   name: ansible
