@@ -43,61 +43,194 @@ jobs:
     name: Generate cqi role documentation
     permissions:
       contents: write
-    uses: trippsoft/github-actions/.github/workflows/role-docs.yml@main
-    with:
-      working_directory: 'trippsc2.citrix'
-      role_name: 'cqi'
+    runs-on:
+      - self-hosted
+      - linux
+      - ansible
+      - x64
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          path: trippsc2.citrix
+          ref: main
+      - name: Generate cqi role documentation
+        working-directory: 'trippsc2.citrix'
+        run: |
+          source ~/venv/ansible-2.16/bin/activate
+          cd ./roles/cqi
+          aar-doc . markdown
+          git config user.name "GitHub Actions"
+          git config user.email "github-actions@github.com"
+          git add README.md || /bin/true
+          git commit -m "Update cqi role documentation." || /bin/true
+          git push origin main
+          deactivate
   docs_licensing:
     name: Generate licensing role documentation
+    needs: docs_cqi
     permissions:
       contents: write
-    needs: docs_cqi
-    uses: trippsoft/github-actions/.github/workflows/role-docs.yml@main
-    with:
-      working_directory: 'trippsc2.citrix'
-      role_name: 'licensing'
+    runs-on:
+      - self-hosted
+      - linux
+      - ansible
+      - x64
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          path: trippsc2.citrix
+          ref: main
+      - name: Generate licensing role documentation
+        working-directory: 'trippsc2.citrix'
+        run: |
+          source ~/venv/ansible-2.16/bin/activate
+          cd ./roles/licensing
+          aar-doc . markdown
+          git config user.name "GitHub Actions"
+          git config user.email "github-actions@github.com"
+          git add README.md || /bin/true
+          git commit -m "Update licensing role documentation." || /bin/true
+          git push origin main
+          deactivate
   docs_pvs_console:
     name: Generate pvs_console role documentation
+    needs: docs_licensing
     permissions:
       contents: write
-    needs: docs_licensing
-    uses: trippsoft/github-actions/.github/workflows/role-docs.yml@main
-    with:
-      working_directory: 'trippsc2.citrix'
-      role_name: 'pvs_console'
+    runs-on:
+      - self-hosted
+      - linux
+      - ansible
+      - x64
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          path: trippsc2.citrix
+          ref: main
+      - name: Generate pvs_console role documentation
+        working-directory: 'trippsc2.citrix'
+        run: |
+          source ~/venv/ansible-2.16/bin/activate
+          cd ./roles/pvs_console
+          aar-doc . markdown
+          git config user.name "GitHub Actions"
+          git config user.email "github-actions@github.com"
+          git add README.md || /bin/true
+          git commit -m "Update pvs_console role documentation." || /bin/true
+          git push origin main
+          deactivate
   docs_pvs_server:
     name: Generate pvs_server role documentation
+    needs: docs_pvs_console
     permissions:
       contents: write
-    needs: docs_pvs_console
-    uses: trippsoft/github-actions/.github/workflows/role-docs.yml@main
-    with:
-      working_directory: 'trippsc2.citrix'
-      role_name: 'pvs_server'
+    runs-on:
+      - self-hosted
+      - linux
+      - ansible
+      - x64
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          path: trippsc2.citrix
+          ref: main
+      - name: Generate pvs_server role documentation
+        working-directory: 'trippsc2.citrix'
+        run: |
+          source ~/venv/ansible-2.16/bin/activate
+          cd ./roles/pvs_server
+          aar-doc . markdown
+          git config user.name "GitHub Actions"
+          git config user.email "github-actions@github.com"
+          git add README.md || /bin/true
+          git commit -m "Update pvs_server role documentation." || /bin/true
+          git push origin main
+          deactivate
   docs_pvs_target:
     name: Generate pvs_target role documentation
+    needs: docs_pvs_server
     permissions:
       contents: write
-    needs: docs_pvs_server
-    uses: trippsoft/github-actions/.github/workflows/role-docs.yml@main
-    with:
-      working_directory: 'trippsc2.citrix'
-      role_name: 'pvs_target'
+    runs-on:
+      - self-hosted
+      - linux
+      - ansible
+      - x64
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          path: trippsc2.citrix
+          ref: main
+      - name: Generate pvs_target role documentation
+        working-directory: 'trippsc2.citrix'
+        run: |
+          source ~/venv/ansible-2.16/bin/activate
+          cd ./roles/pvs_target
+          aar-doc . markdown
+          git config user.name "GitHub Actions"
+          git config user.email "github-actions@github.com"
+          git add README.md || /bin/true
+          git commit -m "Update pvs_target role documentation." || /bin/true
+          git push origin main
+          deactivate
   docs_wem_agent:
     name: Generate wem_agent role documentation
+    needs: docs_pvs_target
     permissions:
       contents: write
-    needs: docs_pvs_target
-    uses: trippsoft/github-actions/.github/workflows/role-docs.yml@main
-    with:
-      working_directory: 'trippsc2.citrix'
-      role_name: 'wem_agent'
+    runs-on:
+      - self-hosted
+      - linux
+      - ansible
+      - x64
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          path: trippsc2.citrix
+          ref: main
+      - name: Generate wem_agent role documentation
+        working-directory: 'trippsc2.citrix'
+        run: |
+          source ~/venv/ansible-2.16/bin/activate
+          cd ./roles/wem_agent
+          aar-doc . markdown
+          git config user.name "GitHub Actions"
+          git config user.email "github-actions@github.com"
+          git add README.md || /bin/true
+          git commit -m "Update wem_agent role documentation." || /bin/true
+          git push origin main
+          deactivate
   docs_win_server_vda:
     name: Generate win_server_vda role documentation
+    needs: docs_wem_agent
     permissions:
       contents: write
-    needs: docs_wem_agent
-    uses: trippsoft/github-actions/.github/workflows/role-docs.yml@main
-    with:
-      working_directory: 'trippsc2.citrix'
-      role_name: 'win_server_vda'
+    runs-on:
+      - self-hosted
+      - linux
+      - ansible
+      - x64
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          path: trippsc2.citrix
+          ref: main
+      - name: Generate win_server_vda role documentation
+        working-directory: 'trippsc2.citrix'
+        run: |
+          source ~/venv/ansible-2.16/bin/activate
+          cd ./roles/win_server_vda
+          aar-doc . markdown
+          git config user.name "GitHub Actions"
+          git config user.email "github-actions@github.com"
+          git add README.md || /bin/true
+          git commit -m "Update win_server_vda role documentation." || /bin/true
+          git push origin main
+          deactivate
