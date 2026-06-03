@@ -93,6 +93,10 @@ AdvancedRecoverSeconds={{ ctxpvs_network_recovery_timeout_in_seconds }}
 {% endif %}
 AdvancedLoginPolling={{ ctxpvs_login_polling_timeout_in_milliseconds }}
 AdvancedLoginGeneral={{ ctxpvs_login_general_timeout_in_milliseconds }}
+{% if ctxpvs_configure_soap_ssl %}
+SSLPort={{ ctxpvs_soap_ssl_port }}
+SSLCert={{ ctxpvs_soap_ssl_certificate }}
+{% endif %}
 {% if ctxpvs_cis_username is defined %}
 CisUserName={{ ctxpvs_cis_username }}
 CisPassword={{ ctxpvs_cis_password }}

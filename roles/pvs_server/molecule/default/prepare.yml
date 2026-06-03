@@ -54,6 +54,23 @@
       ansible.windows.win_file:
         path: "{{ ctxpvs_default_store_path }}"
         state: directory
+
+    - name: Copy certificate file
+      ansible.windows.win_copy:
+        src: win.pfx
+        dest: C:\Windows\Temp\win.pfx
+
+    - name: Import certificate
+      ansible.windows.win_certificate_store:
+        file_type: pkcs12
+        key_storage: machine
+        password: SecurePassword123!
+        path: C:\Windows\Temp\win.pfx
+        store_location: LocalMachine
+        store_name: My
+        store_type: system
+        key_exportable: true
+        state: present
   roles:
     - role: trippsc2.citrix.licensing
     - role: trippsc2.windows.testing_chocolatey

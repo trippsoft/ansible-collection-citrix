@@ -320,6 +320,34 @@
     fail_msg: The login general timeout must be greater than 0.
     success_msg: The login general timeout is valid.
 
+- name: Validate SOAP SSL configuration
+  when:
+    - ctxpvs_configure_soap_ssl
+  block:
+    - name: Validate SOAP SSL port is a valid port
+      ansible.builtin.assert:
+        that:
+          - ctxpvs_soap_ssl_port | int > 0
+          - ctxpvs_soap_ssl_port | int < 65536
+        fail_msg: The SOAP SSL port must be a valid port.
+        success_msg: The SOAP SSL port is a valid port.
+
+    - name: Validate SOAP SSL port is not the same as the non-SSL SOAP port
+      ansible.builtin.assert:
+        that:
+          - ctxpvs_soap_ssl_port | int != ctxpvs_soap_port | int
+        fail_msg: The SOAP SSL port must be different than the non-SSL SOAP port.
+        success_msg: The SOAP SSL port is different than the non-SSL SOAP port.
+
+    - name: Validate SOAP SSL certificate thumbprint is valid
+      ansible.builtin.assert:
+        that:
+          - ctxpvs_soap_ssl_certificate is defined
+          - ctxpvs_soap_ssl_certificate | length == 40
+          - ctxpvs_soap_ssl_certificate is match("^[a-fA-F0-9]{40}$")
+        fail_msg: The SOAP SSL certificate thumbprint must be a valid 40-character hexadecimal string.
+        success_msg: The SOAP SSL certificate thumbprint is valid.
+
 - name: Validate CIS password is defined
   when:
     - ctxpvs_cis_username is defined

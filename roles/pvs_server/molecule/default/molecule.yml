@@ -45,7 +45,7 @@ provisioner:
       all:
         mssql_sa_password: SecurePassword123!
       subjects:
-        _ctxpvs_version: ${MOLECULE_CITRIX_PVS_VERSION:-2511}
+        _ctxpvs_version: ${MOLECULE_CITRIX_PVS_VERSION:-2603}
         _ctxpvs_console_installer_source: "../../../../files/pvs_console/{{ _ctxpvs_version }}"
         _ctxpvs_server_installer_source: "../../../../files/pvs_server/{{ _ctxpvs_version }}"
         _ctxpvs_licensing_installer_source: "../../../../files/licensing"
@@ -81,6 +81,8 @@ provisioner:
         ctxpvs_stream_servers:
           - ip_address: "{{ ansible_host }}"
             subnet_mask: '255.255.255.0'
+        ctxpvs_configure_soap_ssl: true
+        ctxpvs_soap_ssl_certificate: 143e63997e3dcf95e4d83d72458588c8a618a8e5
       windows:
         ansible_shell_type: powershell
         ansible_become_method: runas

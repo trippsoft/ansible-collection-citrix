@@ -45,10 +45,10 @@ jobs:
           - w11_24h2_base
           - w11_23h2_base
         version:
+          - '2603'
           - '2511'
           - '2507'
           - '2503'
-          - '2411'
           - '2402'
     steps:
       - name: Checkout

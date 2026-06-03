@@ -30,3 +30,6 @@ ctxpvs_network_recovery_timeout_in_seconds: 50
 
 ctxpvs_login_polling_timeout_in_milliseconds: 5000
 ctxpvs_login_general_timeout_in_milliseconds: 30000
+
+ctxpvs_configure_soap_ssl: false
+ctxpvs_soap_ssl_port: 54323

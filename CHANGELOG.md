@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.8.0] - 2026-06-03
+
+### Role - pvs_console
+
+- Added support for 2603 to be installed.
+- Added support for 2402 CU4 to be installed.
+
+### Role - pvs_server
+
+- Added support for 2603 to be installed.
+- Added support for 2402 CU4 to be installed.
+
+### Role - pvs_target
+
+- Added support for 2603 to be installed.
+- Added support for 2402 CU4 to be installed.
+
+### Role - wem_agent
+
+- Added support for 2603 to be installed.
+
+### Role - win_server_vda
+
+- Added support for 2603 to be installed.
+- Added support for 2402 CU4 to be installed.
+
 ## [1.7.0] - 2026-03-16
 
 ### Role - pvs_console
