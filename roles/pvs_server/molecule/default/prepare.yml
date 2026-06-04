@@ -21,6 +21,7 @@
         src: "{{ _mssql_setup_source_path }}"
         dest: "{{ mssql_setup_path | win_dirname }}"
   roles:
+    - role: trippsc2.windows.testing_chocolatey
     - role: trippsc2.mssql.install
 
 - name: Prepare

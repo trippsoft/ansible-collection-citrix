@@ -110,6 +110,9 @@ provisioner:
           -o ForwardX11=no
           -o LogLevel=ERROR
           -o StrictHostKeyChecking=no
+        choco_configure_testing_repo: ${MOLECULE_CONFIGURE_TESTING_REPO:-true}
+        choco_testing_repo_name: Testing
+        choco_testing_repo_url: ${MOLECULE_TESTING_REPO_URL:-http://192.168.81.5:8081/repository/chocolatey-proxy/}
         _mssql_setup_source_path: ../../../../files/mssql
         mssql_vault_manage_sa_password: false
         mssql_configure_monitoring: false
