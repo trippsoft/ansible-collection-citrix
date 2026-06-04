@@ -62,16 +62,8 @@
         dest: C:\Windows\Temp\win.pfx
 
     - name: Import certificate
-      ansible.windows.win_certificate_store:
-        file_type: pkcs12
-        key_storage: machine
-        password: SecurePassword123!
-        path: C:\Windows\Temp\win.pfx
-        store_location: LocalMachine
-        store_name: My
-        store_type: system
-        key_exportable: true
-        state: present
+      ansible.windows.win_shell: |
+        certutil.exe -p "SecurePassword123!" -csp "Microsoft Software Key Storage Provider" -importpfx "C:\Windows\Temp\win.pfx"
   roles:
     - role: trippsc2.citrix.licensing
     - role: trippsc2.windows.testing_chocolatey
