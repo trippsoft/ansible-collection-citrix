@@ -1,9 +1,9 @@
 ---
 - name: Gather OS facts
   when:
-    - ansible_distribution is not defined or
-      ansible_os_family is not defined or
-      ansible_windows_domain_member is not defined
+    - ansible_facts.distribution is not defined or
+      ansible_facts.os_family is not defined or
+      ansible_facts.windows_domain_member is not defined
   ansible.builtin.setup:
     gather_subset:
       - '!all'
@@ -14,15 +14,15 @@
 - name: Validate OS
   ansible.builtin.assert:
     that:
-      - ansible_os_family == 'Windows'
-      - ('Windows Server' in ansible_distribution)
-    fail_msg: "This role only supports Windows Server.  {{ ansible_distribution }} is not supported."
-    success_msg: "This role supports {{ ansible_distribution }}."
+      - ansible_facts.os_family == 'Windows'
+      - ('Windows Server' in ansible_facts.distribution)
+    fail_msg: "This role only supports Windows Server.  {{ ansible_facts.distribution }} is not supported."
+    success_msg: "This role supports {{ ansible_facts.distribution }}."
 
 - name: Validate domain membership
   ansible.builtin.assert:
     that:
-      - ansible_windows_domain_member
+      - ansible_facts.windows_domain_member
     fail_msg: This role requires the server to be a member of a domain.
     success_msg: This server is a member of a domain.
 

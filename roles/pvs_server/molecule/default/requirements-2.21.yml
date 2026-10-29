@@ -1,0 +1,5 @@
+---
+collections:
+  - name: trippsc2.ad
+  - name: trippsc2.mssql
+  - name: trippsc2.windows

@@ -2,6 +2,36 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.8.1] - 2026-06-03
+
+### Role - cqi
+
+- Changed fact gathering to use `ansible_facts` instead of direct variables.
+
+### Role - licensing
+
+- Changed fact gathering to use `ansible_facts` instead of direct variables.
+
+### Role - pvs_console
+
+- Changed fact gathering to use `ansible_facts` instead of direct variables.
+
+### Role - pvs_server
+
+- Changed fact gathering to use `ansible_facts` instead of direct variables.
+
+### Role - pvs_target
+
+- Changed fact gathering to use `ansible_facts` instead of direct variables.
+
+### Role - wem_agent
+
+- Changed fact gathering to use `ansible_facts` instead of direct variables.
+
+### Role - win_server_vda
+
+- Changed fact gathering to use `ansible_facts` instead of direct variables.
+
 ## [1.8.0] - 2026-06-03
 
 ### Role - pvs_console
