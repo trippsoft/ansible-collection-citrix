@@ -1,7 +1,7 @@
 <!-- BEGIN_ANSIBLE_DOCS -->
 
 # Ansible Role: trippsc2.citrix.cqi
-Version: 1.8.0
+Version: 1.8.1
 
 This role installs Citrix Connection Quality Indicator on Windows systems.
 
@@ -21,7 +21,7 @@ This role installs Citrix Connection Quality Indicator on Windows systems.
 |Option|Description|Type|Required|Choices|Default|
 |---|---|---|---|---|---|
 | ctxcqi_installer_path | <p>The path to the Citrix Connection Quality Indicator MSI installer.</p> | path | yes |  |  |
-| ctxcqi_installer_log_path | <p>The path to the log file for the Citrix Connection Quality Indicator installer.</p> | path | no |  | C:\Windows\Temp\CitrixCQI.log |
+| ctxcqi_installer_log_path | <p>The path to the log file for the Citrix Connection Quality Indicator installer.</p> | path | no |  | `C:\Windows\Temp\CitrixCQI.log` |
 
 
 ## License
