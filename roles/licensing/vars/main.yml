@@ -5,39 +5,19 @@ _ctxlic_ceipoptin_values:
   none: NONE
 
 _ctxlic_install_directory_arguments: >-
-  [
-  {% if ctxlic_install_directory is defined %}
-    "INSTALLDIR=\"{{ ctxlic_install_directory }}\""
-  {% endif %}
-  ]
+  {{ ["INSTALLDIR=\\" + ctxlic_install_directory + "\\"] if ctxlic_install_directory is defined else [] }}
 
 _ctxlic_license_server_port_arguments: >-
-  [
-  {% if ctxlic_license_server_port is defined %}
-    "LICSERVERPORT={{ ctxlic_license_server_port }}"
-  {% endif %}
-  ]
+  {{ ["LICSERVERPORT=" + ctxlic_license_server_port] if ctxlic_license_server_port is defined else [] }}
 
 _ctxlic_ctxlic_vendor_daemon_port_arguments: >-
-  [
-  {% if ctxlic_vendor_daemon_port is defined %}
-    "VENDORDAEMONPORT={{ ctxlic_vendor_daemon_port }}"
-  {% endif %}
-  ]
+  {{ ["VENDORDAEMONPORT=" + ctxlic_vendor_daemon_port] if ctxlic_vendor_daemon_port is defined else [] }}
 
 _ctxlic_web_services_for_licensing_port_arguments: >-
-  [
-  {% if ctxlic_web_services_for_licensing_port is defined %}
-    "WEBSERVICESLICENSINGPORT={{ ctxlic_web_services_for_licensing_port }}"
-  {% endif %}
-  ]
+  {{ ["WEBSERVICESLICENSINGPORT=" + ctxlic_web_services_for_licensing_port] if ctxlic_web_services_for_licensing_port is defined else [] }}
 
 _ctxlic_ceip_optin_arguments: >-
-  [
-  {% if ctxlic_ceip_optin is defined %}
-    "CEIPOPTIN={{ _ctxlic_ceipoptin_values[ctxlic_ceip_optin] }}"
-  {% endif %}
-  ]
+  {{ ["CEIPOPTIN=" + _ctxlic_ceipoptin_values[ctxlic_ceip_optin]] if ctxlic_ceip_optin is defined else [] }}
 
 _ctxlic_install_arguments: >-
   {{ _ctxlic_install_directory_arguments +

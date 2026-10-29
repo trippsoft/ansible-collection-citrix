@@ -440,83 +440,37 @@ _ctxvda_base_arguments:
   - VDA
 
 _ctxvda_controllers_arguments: >-
-  [
-  {% if ctxvda_controllers | default([]) | length > 0 %}
-    "/controllers",
-    "\"{{ ctxvda_controllers | join(",") }}\""
-  {% endif %}
-  ]
+  {{ ["/controllers", '"' + ctxvda_controllers | join(",") + '"'] if ctxvda_controllers | default([]) | length > 0 else [] }}
 
 _ctxvda_enable_hdx_ports_arguments: >-
-  [
-  {% if ctxvda_configure_windows_firewall %}
-    "/enable_hdx_ports"
-  {% endif %}
-  ]
+  {{ ["/enable_hdx_ports"] if ctxvda_configure_windows_firewall else [] }}
 
 _ctxvda_enable_real_time_transport_arguments: >-
-  [
-  {% if ctxvda_enable_real_time_transport %}
-    "/enable_real_time_transport"
-  {% endif %}
-  ]
+  {{ ["/enable_real_time_transport"] if ctxvda_enable_real_time_transport else [] }}
 
 _ctxvda_enable_hdx_udp_ports_arguments: >-
-  [
-  {% if ctxvda_configure_windows_firewall and ctxvda_enable_real_time_transport %}
-    "/enable_hdx_udp_ports"
-  {% endif %}
-  ]
+  {{ ["/enable_hdx_udp_ports"] if ctxvda_configure_windows_firewall and ctxvda_enable_real_time_transport else [] }}
 
 _ctxvda_enable_remote_assistance_arguments: >-
-  [
-  {% if ctxvda_install_remote_assistance %}
-    "/enable_remote_assistance"
-  {% endif %}
-  ]
+  {{ ["/enable_remote_assistance"] if ctxvda_install_remote_assistance else [] }}
 
 _ctxvda_enable_ss_ports_arguments: >-
-  [
-  {% if ctxvda_configure_windows_firewall and ctxvda_enable_screen_sharing %}
-    "/enable_ss_ports"
-  {% endif %}
-  ]
+  {{ ["/enable_ss_ports"] if ctxvda_configure_windows_firewall and ctxvda_enable_screen_sharing else [] }}
 
 _ctxvda_rendezvous_arguments: >-
-  [
-  {% if ctxvda_install_rendezvous %}
-    "\"Citrix Rendezvous V2\""
-  {% endif %}
-  ]
+  {{ ['"Citrix Rendezvous V2"'] if ctxvda_install_rendezvous else [] }}
 
 _ctxvda_vda_upgrade_agent_arguments: >-
-  [
-  {% if _ctxvda_install_vda_upgrade_agent %}
-    "\"Citrix VDA Upgrade Agent\""
-  {% endif %}
-  ]
+  {{ ['"Citrix VDA Upgrade Agent"'] if _ctxvda_install_vda_upgrade_agent else [] }}
 
 _ctxvda_profile_management_arguments: >-
-  [
-  {% if ctxvda_install_profile_management %}
-    "\"Citrix Profile Management\"",
-    "\"Citrix Profile Management WMI Plug-in\""
-  {% endif %}
-  ]
+  {{ ['"Citrix Profile Management"', '"Citrix Profile Management WMI Plug-in"'] if ctxvda_install_profile_management else [] }}
 
 _ctxvda_mcs_io_driver_arguments: >-
-  [
-  {% if _ctxvda_install_mcs_io_driver %}
-    "\"Citrix MCS IODriver\""
-  {% endif %}
-  ]
+  {{ ['"Citrix MCS IODriver"'] if _ctxvda_install_mcs_io_driver else [] }}
 
 _ctxvda_appv_personalization_arguments: >-
-  [
-  {% if ctxvda_install_appv_personalization %}
-    "\"Citrix Personalization for App-V - VDA\""
-  {% endif %}
-  ]
+  {{ ['"Citrix Personalization for App-V - VDA"'] if ctxvda_install_appv_personalization else [] }}
 
 _ctxvda_include_additional_component_arguments: >-
   {{ _ctxvda_rendezvous_arguments +
@@ -530,41 +484,19 @@ _ctxvda_include_additional_arguments:
   - '{{ _ctxvda_include_additional_component_arguments | join(",") }}'
 
 _ctxvda_exclude_arguments: >-
-  [
-  {% if not ctxvda_install_profile_management %}
-    "/exclude",
-    "\"Citrix Profile Management\",\"Citrix Profile Management WMI Plug-in\""
-  {% endif %}
-  ]
+  {{ ["/exclude", '"Citrix Profile Management","Citrix Profile Management WMI Plug-in"'] if not ctxvda_install_profile_management else [] }}
 
 _ctxvda_mcs_arguments: >-
-  [
-  {% if ctxvda_install_type == 'mcs' %}
-    "/mastermcsimage"
-  {% endif %}
-  ]
+  {{ ["/mastermcsimage"] if ctxvda_install_type == 'mcs' else [] }}
 
 _ctxvda_pvs_arguments: >-
-  [
-  {% if ctxvda_install_type == 'pvs' %}
-    "/masterpvsimage"
-  {% endif %}
-  ]
+  {{ ["/masterpvsimage"] if ctxvda_install_type == 'pvs' else [] }}
 
 _ctxvda_remotepc_arguments: >-
-  [
-  {% if ctxvda_install_type == 'remotepc' %}
-    "/remotepc"
-  {% endif %}
-  ]
+  {{ ["/remotepc"] if ctxvda_install_type == 'remotepc' else [] }}
 
 _ctxvda_rendezvous_proxy_config_arguments: >-
-  [
-  {% if ctxvda_install_rendezvous and ctxvda_rendezvous_proxy_config is defined %}
-    "/proxyconfig",
-    "\"{{ ctxvda_rendezvous_proxy_config }}\""
-  {% endif %}
-  ]
+  {{ ["/proxyconfig", '"' + ctxvda_rendezvous_proxy_config + '"'] if ctxvda_install_rendezvous and ctxvda_rendezvous_proxy_config is defined else [] }}
 
 _ctxvda_arguments: >-
   {{ (_ctxvda_base_arguments +

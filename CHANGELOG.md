@@ -11,6 +11,7 @@ All notable changes to this project will be documented in this file.
 ### Role - licensing
 
 - Changed fact gathering to use `ansible_facts` instead of direct variables.
+- Fixed list concatenation issues.
 
 ### Role - pvs_console
 
@@ -31,6 +32,7 @@ All notable changes to this project will be documented in this file.
 ### Role - win_server_vda
 
 - Changed fact gathering to use `ansible_facts` instead of direct variables.
+- Fixed list concatenation issues.
 
 ## [1.8.0] - 2026-06-03
 
